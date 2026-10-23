@@ -1,5 +1,10 @@
 # Contributing to Yargs
 
+For this Go port, run `gofmt -w *.go`, `go test ./...`, and
+`go build -o yargs .` before submitting a change. The module is deliberately
+standard-library-only and must build offline. Behavioral changes need focused
+Go tests and comparison with the pinned yargs 18.2.0 reference command.
+
 Me hearties, we would love to have you contribute to yargs!
 
 If you are looking to update the website, check out [yargs/yargs.github.io](https://github.com/yargs/yargs.github.io).

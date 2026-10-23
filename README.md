@@ -180,3 +180,21 @@ post on why we think this is important](https://medium.com/the-node-js-collectio
 [type-definitions]: https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/yargs
 [coverage-image]: https://img.shields.io/nycrc/yargs/yargs
 [coverage-url]: https://github.com/yargs/yargs/blob/main/.nycrc
+## yargs-go port
+
+This repository is the Go port of yargs 18.2.0 and its pinned yargs-parser
+22.0.0 behavior. Build and test it offline with `go test ./...` and
+`go build -o yargs .`.
+
+The `yargs` executable is a streaming JSON-lines command. Each request contains
+a declarative `spec` and an `argv` array; each response contains `exitCode`,
+`stdout`, and `stderr`. For example:
+
+```sh
+printf '%s\n' '{"spec":{"scriptName":"tool","options":{"port":{"type":"number"}}},"argv":["--port","08"]}' | ./yargs
+```
+
+The Go implementation preserves ordered JSON results, JavaScript number
+coercion, aliases, defaults, arrays, nargs, counts, dot notation, commands,
+validation, and cliui-style help wrapping. The historical documentation below
+is retained as behavioral background.
